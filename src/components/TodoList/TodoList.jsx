@@ -10,6 +10,8 @@ function TodoList(props) {
             key={todoItem.id}
             id={todoItem.id}
             text={todoItem.text}
+            completed={todoItem.completed} // Pass completed status
+            onToggleComplete={props.onToggleComplete} // Pass toggle function
             onDelete={props.onDelete}
           />
         ))}
