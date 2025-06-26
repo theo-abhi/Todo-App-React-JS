@@ -5,16 +5,14 @@ function App() {
   const [inputText, setInputText] = useState("");
   const [items, setItems] = useState([]);
 
-  function handleChange(event) {
-    setInputText(event.target.value);
-  }
-
   function addItem(event) {
     event.preventDefault();
     if (inputText.trim() === "") return;
-
     setItems((prevItems) => {
-      return [...prevItems, { id: Date.now(), text: inputText }];
+      return [
+        ...prevItems,
+        { id: Date.now(), text: inputText, completed: false },
+      ];
     });
     setInputText("");
   }
@@ -23,6 +21,18 @@ function App() {
     setItems((prevItems) => {
       return prevItems.filter((item) => item.id !== id);
     });
+  }
+
+  function toggleComplete(id) {
+    setItems((prevItems) => {
+      return prevItems.map((item) =>
+        item.id === id ? { ...item, completed: !item.completed } : item
+      );
+    });
+  }
+
+  function handleChange(event) {
+    setInputText(event.target.value);
   }
 
   return (
@@ -41,7 +51,11 @@ function App() {
           <span>Add</span>
         </button>
       </form>
-      <TodoList items={items} onDelete={deleteItem} />
+      <TodoList
+        items={items}
+        onDelete={deleteItem}
+        onToggleComplete={toggleComplete}
+      />
     </div>
   );
 }
