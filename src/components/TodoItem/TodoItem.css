@@ -1,0 +1,23 @@
+.todo-item {
+  display: flex; /* Use flexbox to align text and button */
+  align-items: center; /* Vertically center items */
+  justify-content: space-between; /* Push button to the right */
+  padding: 8px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.todo-item .delete-button {
+  opacity: 0; /* Initially hide the button */
+  transition: opacity 0.3s ease-in-out; /* Smooth transition for appearance */
+  margin-left: 15px; /* Space between text and button */
+  padding: 5px 10px;
+  background-color: #f44336; /* Red background for delete */
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.todo-item:hover .delete-button {
+  opacity: 1; /* Show the button on hover */
+}
