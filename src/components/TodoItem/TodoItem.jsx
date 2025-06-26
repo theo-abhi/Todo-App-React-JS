@@ -9,10 +9,11 @@ function TodoItem(props) {
         props.onToggleComplete(props.id); // Call toggle function on click
       }}
     >
-      {props.text}
+      <span className="todo-text">{props.text}</span>
       <button
         className="delete-button" // Add a class name to the button
-        onClick={() => {
+        onClick={(e) => {
+          e.stopPropagation(); // Prevents the li's onClick from firing
           props.onDelete(props.id);
         }}
       >
