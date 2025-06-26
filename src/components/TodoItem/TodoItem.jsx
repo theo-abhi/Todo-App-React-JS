@@ -9,7 +9,6 @@ function TodoItem(props) {
         props.onToggleComplete(props.id); // Call toggle function on click
       }}
     >
-      {" "}
       {props.text}
       <button
         className="delete-button" // Add a class name to the button
