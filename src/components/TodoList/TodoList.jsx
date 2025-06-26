@@ -6,7 +6,12 @@ function TodoList(props) {
     <div>
       <ul>
         {props.items.map((todoItem) => (
-          <TodoItem key={todoItem.id} text={todoItem.text} />
+          <TodoItem
+            key={todoItem.id}
+            id={todoItem.id}
+            text={todoItem.text}
+            onDelete={props.onDelete}
+          />
         ))}
       </ul>
     </div>
