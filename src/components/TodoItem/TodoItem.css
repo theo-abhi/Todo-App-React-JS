@@ -6,6 +6,11 @@
   border-bottom: 1px solid #eee;
 }
 
+.todo-text {
+  /* This allows the text to grow and fill the space, pushing the button to the right */
+  flex-grow: 1;
+}
+
 .todo-item .delete-button {
   opacity: 0; /* Initially hide the button */
   transition: opacity 0.3s ease-in-out; /* Smooth transition for appearance */
@@ -16,12 +21,15 @@
   border: none;
   border-radius: 4px;
   cursor: pointer;
+  text-decoration: none;
 }
 
 .todo-item:hover .delete-button {
   opacity: 1; /* Show the button on hover */
 }
 
-.todo-item.completed {
+/* Only apply the strikethrough to the text span inside a completed item */
+.todo-item.completed .todo-text {
   text-decoration: line-through;
+  color: #888; /* Graying out the text is a nice UX touch */
 }
