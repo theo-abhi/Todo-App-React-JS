@@ -71,9 +71,3 @@ button span {
   border-radius: 5px;
   border: 2px solid hsl(198, 1%, 29%);
 }
-
-li {
-  text-align: left;
-  position: relative;
-  padding: 0.5rem;
-}
