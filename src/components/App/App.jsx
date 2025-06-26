@@ -8,6 +8,7 @@ function App() {
   function addItem(event) {
     event.preventDefault();
     if (inputText.trim() === "") return;
+
     setItems((prevItems) => {
       return [
         ...prevItems,
