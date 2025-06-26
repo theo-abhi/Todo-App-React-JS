@@ -21,3 +21,7 @@
 .todo-item:hover .delete-button {
   opacity: 1; /* Show the button on hover */
 }
+
+.todo-item.completed {
+  text-decoration: line-through;
+}
