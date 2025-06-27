@@ -1,22 +1,19 @@
-import React from "react";
 import TodoItem from "../TodoItem/TodoItem";
 
 function TodoList(props) {
   return (
-    <div>
-      <ul>
-        {props.items.map((todoItem) => (
-          <TodoItem
-            key={todoItem.id}
-            id={todoItem.id}
-            text={todoItem.text}
-            completed={todoItem.completed} // Pass completed status
-            onToggleComplete={props.onToggleComplete} // Pass toggle function
-            onDelete={props.onDelete}
-          />
-        ))}
-      </ul>
-    </div>
+    <ul>
+      {props.items.map((item) => (
+        <TodoItem
+          key={item.id} // Use item.id as the key
+          id={item.id} // Pass id
+          text={item.text} // Pass text
+          completed={item.completed} // Pass completed status
+          onDelete={props.onDelete} // Pass onDelete function
+          onToggleComplete={props.onToggleComplete} // Pass onToggleComplete function
+        />
+      ))}
+    </ul>
   );
 }
 
