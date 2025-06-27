@@ -7,12 +7,14 @@ function App() {
 
   function addItem(event) {
     event.preventDefault();
-    if (inputText.trim() === "") return;
-
+    if (!inputText || inputText.trim() === "") {
+      alert("Please enter a task");
+      return;
+    }
     setItems((prevItems) => {
       return [
         ...prevItems,
-        { id: Date.now(), text: inputText, completed: false },
+        { id: items.length + 1, text: inputText, completed: false },
       ];
     });
     setInputText("");
@@ -53,9 +55,9 @@ function App() {
         </button>
       </form>
       <TodoList
-        items={items}
-        onDelete={deleteItem}
-        onToggleComplete={toggleComplete}
+        items={items} //pass items array to TodoList component
+        onDelete={deleteItem} //pass deleteItem function to TodoList component
+        onToggleComplete={toggleComplete} //pass toggleComplete function to TodoList component
       />
     </div>
   );
